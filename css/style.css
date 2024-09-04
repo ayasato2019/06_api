@@ -1,0 +1,55 @@
+:root {
+	--color-base: #1E1E1E;
+	--color-primary: #DC7825;
+	--color-secondly: #f6714B;
+	--color-acsent: #327778;
+	--color-gray: #C3C2CC;
+}
+
+* , *::before, *::after {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    color: var(--color-base);
+	font-family: "Noto Sans JP", system-ui;
+	font-weight: 400;
+	font-style: normal;
+}
+
+.inner {
+    margin-inline: auto;
+    width: min(768px, 96%);
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+    justify-content: space-between;
+    box-shadow: 0 0 16px #eee;
+    width: 100%;
+    z-index: 20;
+}
+
+.header a {
+    font-family: "Kaisei Tokumin", serif;
+    text-decoration: none;
+}
+
+
+
+/* footer */
+.footer .inner {
+    text-align: center;
+}
