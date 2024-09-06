@@ -62,16 +62,11 @@ body {
     background-color: #769ece;    
 }
 
-.my-page-name {
-    margin-bottom: 20px;
-    text-align: center;
-}
-
 .user-name-wrap {
     text-align: center;
 }
 
-label {
+.input-wrap {
     display: flex;
     justify-content: space-between;
     gap: 16px;
@@ -90,7 +85,7 @@ label {
 
 .comment-area {
     width: 100%;
-    padding: 8px 10px;
+    padding: 12px;
     border: 1px solid #d2d2d2;
     border-radius: 3px;
     background: #f7f7f7;
@@ -183,6 +178,27 @@ label {
     box-shadow: inset #2589d0 0 0 0 2em;
     color: #fff;
 }
+
+.input-container {
+    position: relative;
+    width: 100%;
+  }
+  
+  .comment-area {
+    width: 100%;
+    padding-right: 40px; /* マイクアイコンのための余白 */
+  }
+  
+  .mic-button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px; /* アイコンのサイズ */
+  }
 
 /* footer */
 .footer .inner {

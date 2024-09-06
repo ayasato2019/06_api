@@ -1,9 +1,8 @@
 import { push, set, onValue } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-database.js";
 
 
-export default function recording(dbRef, userId) {
+export default function recording(dbRef, userId, comment) {
 	const commentWrap = document.querySelector('.comment-wrap'); // コメントリストのラッパー
-	const comment = document.querySelector('.comment-area');
 
 	var commentItem = {
 		comment: comment.value,
