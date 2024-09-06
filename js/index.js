@@ -25,27 +25,6 @@ recordButton.addEventListener('click', () => {
     voiceInput(comment);
 });
 
-// recordButton.addEventListener('click', () => {
-//     // ブラウザの互換性を考慮
-//     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-
-//     if (!SpeechRecognition) {
-//         alert('このブラウザは音声認識に対応していません');
-//         return;
-//     }
-
-//     // 音声認識のインスタンスを作成
-//     const recognition = new SpeechRecognition();
-
-//     // 認識結果を取得する処理
-//     recognition.onresult = (event) => {
-//         alert(event.results[0][0].transcript);  // 認識された音声をアラート表示
-//     };
-
-//     // 音声認識を開始
-//     recognition.start();
-// });
-
 // submit buttonを押されたら
 submitButton.addEventListener('click', () => {
     recording(dbRef, userId, comment);
