@@ -12,11 +12,6 @@ const dbRef = ref(db, "chat");
 // HTML要素を取得
 const submitButton = document.querySelector('.submit-button'); // 送信ボタン
 const commentWrap = document.querySelector('.comment-wrap'); // コメントリストのラッパー
-const commentJibun = document.querySelector('.jibun');
-const commentAite = document.querySelector('.aite');
-const userName = document.querySelector('.user-name');
-const jibunName = document.querySelector('.jibun-name');
-const aiteName = document.querySelector('.aite-name');
 
 function generateUUID() {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
