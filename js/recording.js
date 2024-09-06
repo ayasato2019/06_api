@@ -1,15 +1,47 @@
-import { push, set } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-database.js";
+import { push, set, onValue } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-database.js";
 
-function recording(dbRef) {
-	const newComment = commentArea.value;  // 入力されたコメントを取得
 
-	if (newComment.trim() !== '') {
-		const newCommentRef = push(dbRef);  // Firebaseに新しいコメントをプッシュ
-		set(newCommentRef, {
-			comment: newComment,
-			timestamp: Date.now()
-		});
+export function recording(dbRef, userId) {
+	const commentWrap = document.querySelector('.comment-wrap'); // コメントリストのラッパー
+	const comment = document.querySelector('.comment-area');
 
-		commentArea.value = '';  // 入力フィールドをクリア
-	}
+	var commentItem = {
+		comment: comment.value,
+		user: userId,
+	};
+
+	// Firebaseへ追加
+	const newPostRef = push(dbRef);
+	set(newPostRef, commentItem);
+
+	// 既存のアイテムをクリア
+	commentWrap.innerHTML = '';
+
+	// データベースをフロントに表示
+	onValue(dbRef, (snapshot) => {
+		const comments = snapshot.val();
+		
+		if (comments) {            
+			Object.entries(comments).forEach(([key, commentItem]) => {
+				if (commentItem.user === userId) {
+					const newItem = document.createElement('li');    
+					newItem.classList.add('comment-item', 'jibun');
+					newItem.innerHTML = `
+					<p class="comment-text aite-comment">${commentItem.comment}</p>
+					<img class="comment-icon" src="./images/img-user-02.png" alt="User Icon" width="374" height="400" />
+					`;
+					commentWrap.appendChild(newItem);
+				} else {
+					const newItem = document.createElement('li');    
+					newItem.classList.add('comment-item', 'aite');
+					newItem.innerHTML = `
+					<img class="comment-icon" src="./images/img-user-01.png" alt="User Icon" width="374" height="400" />
+					<p class="comment-text">${commentItem.comment}</p>
+					`;
+					commentWrap.appendChild(newItem);
+				}
+			});
+		}
+	});
 }
+
