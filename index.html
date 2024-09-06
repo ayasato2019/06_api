@@ -23,8 +23,21 @@
 
 	<main class="main">
 		<div class="inner">
-
-
+			<p>ようこそ<span class="user-name">ゲスト</span>さん</p>
+			<ul class="comment-wrap">
+				<li class="comment-item aite">
+					<img class="comment-icon" src="./images/img-user-01.png" alt="" width="374" height="400" class="aite-icon" />
+					<p class="comment-text aite-comment">テキスト１</p>
+				</li>
+				<li class="comment-item jibun">
+					<p class="comment-text jibun-comment">テキスト２</p>
+					<img class="comment-icon" src="./images/img-user-02.png" alt="" width="374" height="400" class="jibun-icon" />
+				</li>
+			</ul>
+			<label>
+				<input type="text" class="comment-area" placeholder="テキストを入れてください..."/>
+				<button id="send" class="submit-button">送信</button>
+			</label>
 		</div>
 	</main>
 
@@ -33,6 +46,5 @@
 	</footer>
 
 	<script type="module" src="./js/index.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
 </body>
 </html>
